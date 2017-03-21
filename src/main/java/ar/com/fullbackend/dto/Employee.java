@@ -1,6 +1,7 @@
 package ar.com.fullbackend.dto;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "EMPLOYEE")
