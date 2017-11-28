@@ -16,7 +16,7 @@ public class AlertaDAOImpl extends HibernateDataAccess implements AlertaDAO{
 
     public List<Alerta> getAlertas(){
         Session session = getSessionFactory().openSession();
-        List<Alerta> alertas = session.createQuery("FROM alerta").list();
+        List<Alerta> alertas = session.createCriteria(Alerta.class).list();
         session.close();
         LOGGER.info(new StringBuilder("Alertas encontradas: ").append(alertas.size()));
         return alertas;

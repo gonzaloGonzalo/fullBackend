@@ -21,4 +21,11 @@ public class SalvaGuardaController {
         return Response.ok(new AlertaDAOImpl().getAlertaReciente()).build();
     }
 
+    @GET
+    @RequestMapping("/alertas")
+    @Produces({ MediaType.APPLICATION_JSON })
+    public Response getAlertas(){
+        return Response.ok(new AlertaDAOImpl().getAlertas()).build();
+    }
+
 }
