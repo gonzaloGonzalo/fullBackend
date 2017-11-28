@@ -8,9 +8,12 @@
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost/full_end</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">user8080</property>
+        <property name="hibernate.connection.password">admin</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="show_sql">false</property>
-        <mapping class="ar.com.fullbackend.dto.Employee"/>
+        <mapping class="ar.com.fullbackend.model.Alerta"/>
+        <mapping class="ar.com.fullbackend.model.Mensaje"/>
+        <mapping class="ar.com.fullbackend.model.Ubicacion"/>
+        <mapping class="ar.com.fullbackend.model.Usuario"/>
     </session-factory>
 </hibernate-configuration>

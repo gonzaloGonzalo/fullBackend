@@ -1,6 +1,12 @@
 package ar.com.fullbackend.dao.impl;
 
-import ar.com.fullbackend.dto.Employee;
+import ar.com.fullbackend.dao.AlertaDAO;
+import ar.com.fullbackend.dao.MensajeDAO;
+import ar.com.fullbackend.model.Alerta;
+import ar.com.fullbackend.model.Mensaje;
+
+import java.util.Calendar;
+
 
 /**
  * Created by computer on 20/03/17.
@@ -8,14 +14,23 @@ import ar.com.fullbackend.dto.Employee;
 public class TestEmployee {
 
     public static void main(String args[]){
-        Employee em = new Employee();
-        em.setId(1);
-        em.setFirstName("Gonzalo");
-        em.setLastName("Garay");
-        em.setSalary(10000);
 
-        EmployeeDAO.create(em);
+        Alerta alerta = new Alerta();
+        alerta.setNivelAlerta("Verde");
+        alerta.setTemperatura(25L);
+        alerta.setPrecipitacion(1134L);
+        AlertaDAO alertaDAO = new AlertaDAOImpl();
+        MensajeDAO mensajeDAO = new MensajeDAOImpl();
 
+        Calendar cal;
+
+        for(int i=0; i<5; i++){
+            cal = Calendar.getInstance();
+            Mensaje mensaje = new Mensaje();
+            mensaje.setFechaMensaje(cal.getTime());
+            mensaje.setMensajeDescripcion("Mensaje: "+i);
+            mensajeDAO.ingresarMensaje(mensaje);
+        }
 
     }
 }
