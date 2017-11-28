@@ -8,5 +8,6 @@ public interface MensajeDAO {
 
     List<Mensaje> getMensajes();
     Mensaje getMensajePorFecha(Date fecha);
+    Mensaje getUltimoMensaje();
     void ingresarMensaje(Mensaje mensaje);
 }

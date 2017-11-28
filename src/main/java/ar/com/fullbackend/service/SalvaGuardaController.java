@@ -1,6 +1,7 @@
 package ar.com.fullbackend.service;
 
 import ar.com.fullbackend.dao.impl.AlertaDAOImpl;
+import ar.com.fullbackend.dao.impl.MensajeDAOImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,6 +27,13 @@ public class SalvaGuardaController {
     @Produces({ MediaType.APPLICATION_JSON })
     public Response getAlertas(){
         return Response.ok(new AlertaDAOImpl().getAlertas()).build();
+    }
+
+    @GET
+    @RequestMapping("/mensaje")
+    @Produces({ MediaType.APPLICATION_JSON })
+    public Response getMensajeMasReciente(){
+        return Response.ok(new MensajeDAOImpl().getUltimoMensaje()).build();
     }
 
 }

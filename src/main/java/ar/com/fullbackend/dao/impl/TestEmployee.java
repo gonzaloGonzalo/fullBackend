@@ -17,8 +17,8 @@ public class TestEmployee {
 
         Alerta alerta = new Alerta();
         alerta.setNivelAlerta("Verde");
-        alerta.setTemperatura(25L);
-        alerta.setPrecipitacion(1134L);
+        alerta.setTemperatura(10L);
+        alerta.setPrecipitacion(1000L);
         AlertaDAO alertaDAO = new AlertaDAOImpl();
         MensajeDAO mensajeDAO = new MensajeDAOImpl();
 
@@ -30,6 +30,17 @@ public class TestEmployee {
             mensaje.setFechaMensaje(cal.getTime());
             mensaje.setMensajeDescripcion("Mensaje: "+i);
             mensajeDAO.ingresarMensaje(mensaje);
+            alerta.setFechaAlerta(cal.getTime());
+            alerta.setTemperatura(alerta.getTemperatura()+i);
+            alerta.setPrecipitacion(alerta.getPrecipitacion()+i);
+            if(i == 3){
+                alerta.setNivelAlerta("Amarillo");
+            }
+            if(i == 4){
+                alerta.setNivelAlerta("Rojo");
+                alerta.setPrecipitacion(2000L);
+            }
+            alertaDAO.ingresarAlerta(alerta);
         }
 
     }
